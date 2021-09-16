@@ -2,22 +2,26 @@ const fs = require('fs');
 const express = require('express'); 
 const router = express.Router();
 
+//global users array to collect the usernames
 const users = [];
 
 const requestHandler = (req, res) =>{
-    const url = req.url;
-    const method = req.method;
+
+    const url = req.url; //get the url for routing purposes
+    const method = req.method; // get the method for routing purposes
+
+    // Main page with the input and submit, after submit will process via /create-user url
     if (url === '/') {
         res.write('<html>');
         res.write('<body>');
         res.write('<h2>Hey All, this is a Greeting message!</h2>');
         res.write('<form action="/create-user" method="POST"><p>Username:<input type="text" name="username"><button type="submit">Send</button></p></form>')
-        
         res.write('</body>');
         res.write('</html>');
         return res.end();
     }
     
+    // this just processes the info and stores the username in the users array and redirects to the list.
     if (url ==='/create-user' &&  method == 'POST') {
         const body = [];
         
@@ -37,6 +41,7 @@ const requestHandler = (req, res) =>{
         });
     }
 
+    // This page is for the list of users that is stored. 
     if (url ==='/users') {
         res.write('<html>');
         res.write('<body>');
@@ -49,11 +54,12 @@ const requestHandler = (req, res) =>{
         });
 
         res.write('</ul>');
+        res.write('<a href="/">Add another user.</a>');
         res.write('</body>');
         res.write('</html>');
         return res.end();
     }
 };
 
-
+//export to use in the prove01.js file
 module.exports = requestHandler;
