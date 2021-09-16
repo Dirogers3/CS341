@@ -1,0 +1,16 @@
+{
+  "name": "prove01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prove01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prove01":"nodemon prove01.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}

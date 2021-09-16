@@ -4,34 +4,7 @@ const fs = require('fs'); // File system for TA01
 const router = express.Router();
 // creates the server via express and begins the infinite loop
 
-/*
-What is the res object?
-  The res object is the results that are returned from the server. 
-  In this case, there isn't an actualy response from server so we
-  write to the server.
 
-what does res.write do?
-  We are just writing the html for what 
-  is being shown in the web page. We start the res from the router.get()
-  then we just print html into the function. At the end we will need to call
-  the res.end().
-
-What is the routes directory used for?
-  These will probably different parts of the webpage. Each route is a different 
-  section for different information. But within the ta01.js file, there are other
-  routes under the ta01/ directory.
-
-What is the views directory used for?
-  The files in here are just parts of the website that are pretty much the same
-  across all the pages. It has the Navigation bar at the top and just some the basic
-  structure of the website.
-
-what is the public directory used for?
-  The public is just some graphic assets like pictures and graphics. It also contains
-  the CSS files for the website.
-
-
-*/
 
 
 // Remember Team Activity 01?
@@ -210,3 +183,38 @@ router.post('/stretch-3', (req, res, next) => {
   });
 });
 module.exports = router;
+
+
+
+
+
+
+
+/*
+What is the res object?
+  The res object is the results that are returned from the server. 
+  In this case, there isn't an actualy response from server so we
+  write to the server.
+
+what does res.write do?
+  We are just writing the html for what 
+  is being shown in the web page. We start the res from the router.get()
+  then we just print html into the function. At the end we will need to call
+  the res.end().
+
+What is the routes directory used for?
+  These will probably different parts of the webpage. Each route is a different 
+  section for different information. But within the ta01.js file, there are other
+  routes under the ta01/ directory.
+
+What is the views directory used for?
+  The files in here are just parts of the website that are pretty much the same
+  across all the pages. It has the Navigation bar at the top and just some the basic
+  structure of the website.
+
+what is the public directory used for?
+  The public is just some graphic assets like pictures and graphics. It also contains
+  the CSS files for the website.
+
+
+*/
