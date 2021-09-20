@@ -1,0 +1,28 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(rel="stylesheet", href="/style.css")
+    body 
+        h1.title Here are all the books:
+        if books.length > 0 
+            table(style='width:60%')
+                tr 
+                    th Title
+                    th Description 
+                    th Price 
+                    th Rating
+                each book in books
+                    tr
+                        td #{book.title}
+                        td #{book.description}
+                        td #{book.price}
+                        td #{book.rating}
+        a(href="/addbook") Add a book!
+    
+        br
+        a(href="/deletebook") Delete last book 
+
