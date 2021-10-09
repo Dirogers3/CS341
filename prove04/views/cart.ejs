@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Shopping Cart: </h1>
+    <% if (books.length > 0) { %>
+    <table style="width:70%">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Quantity</th>
+            <th>Other</th>
+        </tr>
+        <% for (let book of books) {%>
+        <tr>
+            <td><%= book.bookId.title %></td>
+            <td><%= book.bookId.description%></td>
+            <td>$<%= book.bookId.price %></td>
+            <td><%= book.bookId.rating %> /5 stars</td>
+            <td><%= book.quantity %></td>
+            <td><a href="/admin/edit-book/<%= book._id %>">Edit</a></td>
+            <td>
+                <form action="/admin/cart-delete-item" method="POST">
+                    <input type="hidden" value="<%= book.bookId._id %>" name="bookId">
+                    <button class="btn" type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+                <% } %>
+    <br>
+    <div class="centered">
+        <form action="/admin/create-order" method="POST">
+            <button type="submit" class="btn">Order Now!</button>
+        </form>
+    </div>
+    <a href="/admin">Back to main page</a>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Add a book!</h1>
+    <form action="/admin/edit-book" method="POST">
+            <input type="hidden" name="bookId" value="<%= book._id %>">
+            <p><%= book._id %></p>
+        <div class="inputs">
+            <label>Book Title:</label>
+            <input type="text" name="title" value="<%= book.title %>">
+        </div>
+        <br>
+        <div class="inputs">
+            <label>Description:</label>
+            <input type="text" name="description" value="<%= book.description %>">
+        </div>
+        <br>
+        <div class="inputs">
+            <label>Price:</label>
+            <input type="text" name="price" value="<%= book.price %>">
+        </div>
+        <br>
+        <div class="inputs">
+            <label>Rating:</label>
+            <input type="text" name="rating" value="<%= book.rating %>">
+        </div>
+        <br>
+        <div class="inputs">
+            
+            <button type="submit">Add book</button>
+        </div>
+    </form>
+    <a href="/admin">Back to list</a>
+</body>
+</html>
