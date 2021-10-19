@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('.././includes/nav.ejs') %>
+    <h1>Here are all the Books:</h1>
+    <% if (books.length > 0) { %>
+    <table style="width:60%">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Details</th>
+        </tr>
+        <% for (let book of books) {%>
+        <tr>
+            <td><%= book.title %></td>
+            <td><%= book.description%></td>
+            <td>$<%= book.price %></td>
+            <td><%= book.rating %> /5 stars</td>
+            <td><a href="/books/<%= book._id %>">Details</a></td>
+            <td><a href="/admin/edit-book/<%= book._id %>?edit=true">Edit</a></td>
+        </tr>
+        <% } %>
+    </table>
+                <% } %>
+    
+</body>
+</html>
